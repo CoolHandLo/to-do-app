@@ -2,42 +2,25 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
-  const toDoIndex = document.getElementById(liIndex);
-  var toDoCount = 0;
-  var liIndex = 1;
 
-  addToDoForm.addEventListener('submit', () => {
+  addToDoForm.addEventListener('submit', function() {
     event.preventDefault();
-    toDoCount++;
-    var addId = function() {
-      liIndex = toDoId;
-    }
-    let toDoId = toDoCount;
     let title = newToDoText.value;
+    let deleteBtn = document.createElement('button');
     let newLi = document.createElement('li');
     let checkbox = document.createElement('input');
-    let removeLi = document.createElement('input');
+    deleteBtn.innerHTML ='<span>Delete</span>';
     checkbox.type = 'checkbox';
-    removeLi.type = 'button';
-    removeLi.value ='remove';
-    removeLi.innerHTML = onmousedown=addId();
-    newLi.id = toDoId;
     newLi.textContent = title;
     newLi.appendChild(checkbox);
-    newLi.appendChild(removeLi);
+    newLi.appendChild(deleteBtn);
     toDoList.appendChild(newLi);
     newToDoText.value = '';
+
+    deleteBtn.addEventListener('click', function() {
+      newLi.parentNode.removeChild(newLi);
+    });
   });
-
-  toDolist.addEventListener('click', () => {
-    toDoList.removeChild(toDoList[liIndex]);
-  });
-
-
-//  $("ul").on("click", "button", function(e) {
-//      e.preventDefault();
-//      $(this).parent().remove();
-//  });
 }
 
 window.onload = function() {

@@ -6,7 +6,7 @@ function onReady() {
     const newToDoText = document.getElementById('newToDoText');
     if (!newToDoText.value) {return;}
 
-    toDo.push({
+    toDos.push({
       title: newToDoText.value,
       complete: false
     });
